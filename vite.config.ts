@@ -8,6 +8,13 @@ export default defineConfig({
     port: 5173,
     strictPort: true,
   },
+  // Pre-bundle the heavy 3D deps at server start so Vite never re-optimizes
+  // (and force-reloads the page) mid-request. Without this, several browsers
+  // hitting a cold dev server in parallel can race a dep re-optimization and
+  // see dropped connections — which is exactly what the E2E suite does.
+  optimizeDeps: {
+    include: ['three', '@react-three/fiber', '@react-three/drei'],
+  },
   preview: {
     port: 4173,
     strictPort: true,
