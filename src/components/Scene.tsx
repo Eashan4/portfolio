@@ -1,15 +1,28 @@
-import { lazy, Suspense, useEffect, useRef, useState } from 'react'
+import {
+  Suspense,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react'
 import { isWebGLAvailable } from '../lib/webgl.ts'
 import { SceneErrorBoundary } from './SceneErrorBoundary.tsx'
-
-const SceneCanvas = lazy(() => import('./SceneCanvas.tsx'))
 
 type Props = {
   /** Short description rendered as the fallback and for screen readers. */
   label: string
+  /**
+   * The WebGL canvas to mount. Lazy-import it at the call site so `three` /
+   * R3F land in the `r3f` vendor chunk and only download when a scene is on
+   * screen. It receives `active` so it can pause work when scrolled away.
+   */
+  children: (active: boolean) => ReactNode
+  /** Rendered instead of the fallback text when WebGL is missing (optional). */
+  staticFallback?: ReactNode
+  className?: string
 }
 
-const fallback = (label: string) => (
+const fallbackText = (label: string) => (
   <div className="stage-fallback" role="img" aria-label={label}>
     <p>{label}</p>
   </div>
@@ -19,9 +32,11 @@ const fallback = (label: string) => (
  * Drop-in 3D stage.
  *  - Renders a static fallback when WebGL is unavailable.
  *  - Only mounts the canvas once it scrolls into view (IntersectionObserver),
- *    and unmounts / pauses it when it leaves — no offscreen WebGL work.
+ *    and pauses it when it leaves — no offscreen WebGL work.
+ *  - A runtime failure inside the canvas is caught and replaced with the
+ *    fallback, never the whole page.
  */
-export function Scene({ label }: Props) {
+export function Scene({ label, children, staticFallback, className }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [webgl] = useState(isWebGLAvailable)
   const [inView, setInView] = useState(false)
@@ -41,13 +56,26 @@ export function Scene({ label }: Props) {
   }, [])
 
   return (
-    <div className="stage" ref={containerRef} data-testid="scene-stage">
+    <div
+      className={`stage${className ? ` ${className}` : ''}`}
+      ref={containerRef}
+      data-testid="scene-stage"
+    >
       {!webgl ? (
-        fallback(`${label} (3D unavailable — WebGL not supported)`)
+        (staticFallback ??
+          fallbackText(`${label} — 3D unavailable (WebGL not supported)`))
       ) : (
-        <SceneErrorBoundary fallback={fallback(`${label} (3D failed to load)`)}>
-          <Suspense fallback={fallback(`Loading ${label}…`)}>
-            {inView && <SceneCanvas active={inView} />}
+        <SceneErrorBoundary
+          fallback={
+            staticFallback ?? fallbackText(`${label} — 3D failed to load`)
+          }
+        >
+          <Suspense
+            fallback={
+              staticFallback ?? fallbackText(`Loading ${label}…`)
+            }
+          >
+            {inView && children(inView)}
           </Suspense>
         </SceneErrorBoundary>
       )}

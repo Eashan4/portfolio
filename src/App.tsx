@@ -1,53 +1,76 @@
 import { lazy, Suspense } from 'react'
-import { NavLink, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import { MotionConfig } from 'framer-motion'
+import {
+  ChannelRail,
+  Footer,
+  Nav,
+  ScrollProgress,
+} from './components/layout/Chrome'
+import { Eyebrow, ButtonLink } from './components/ui'
 
-// Route-level code splitting: each page (and its 3D payload) loads on demand.
 const Home = lazy(() => import('./pages/Home.tsx'))
-const Work = lazy(() => import('./pages/Work.tsx'))
-const About = lazy(() => import('./pages/About.tsx'))
+const CaseStudy = lazy(() => import('./pages/CaseStudy.tsx'))
 
-const navClass = ({ isActive }: { isActive: boolean }) =>
-  isActive ? 'active' : undefined
-
-export default function App() {
+function RouteFallback() {
   return (
-    <div className="app">
-      <nav className="nav" aria-label="Primary">
-        <NavLink to="/" className="brand" end>
-          eashan.dev
-        </NavLink>
-        <NavLink to="/" className={navClass} end>
-          Home
-        </NavLink>
-        <NavLink to="/work" className={navClass}>
-          Work
-        </NavLink>
-        <NavLink to="/about" className={navClass}>
-          About
-        </NavLink>
-      </nav>
-
-      <main>
-        <Suspense fallback={<p>Loading…</p>}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/work" element={<Work />} />
-            <Route path="/about" element={<About />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
-      </main>
+    <div
+      style={{
+        minHeight: '60vh',
+        display: 'grid',
+        placeItems: 'center',
+        fontFamily: 'var(--font-mono)',
+        fontSize: '0.8rem',
+        letterSpacing: '0.1em',
+        textTransform: 'uppercase',
+        color: 'var(--muted-2)',
+      }}
+    >
+      Loading…
     </div>
   )
 }
 
 function NotFound() {
   return (
-    <>
-      <h1>Not found</h1>
-      <p>
-        That page doesn&rsquo;t exist. <NavLink to="/">Go home</NavLink>.
+    <div
+      style={{
+        width: 'min(100% - 3rem, 40rem)',
+        margin: '0 auto',
+        padding: '6rem 0',
+      }}
+    >
+      <Eyebrow>Error / 404</Eyebrow>
+      <h1 style={{ margin: '1rem 0 1.5rem' }}>Signal lost.</h1>
+      <p style={{ marginBottom: '2rem' }}>
+        That page isn’t on this system. Head back to the start.
       </p>
-    </>
+      <ButtonLink href="/" primary withArrow>
+        Return home
+      </ButtonLink>
+    </div>
+  )
+}
+
+export default function App() {
+  return (
+    <MotionConfig reducedMotion="user">
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
+      <ScrollProgress />
+      <ChannelRail />
+      <Nav />
+      <main id="main">
+        <Suspense fallback={<RouteFallback />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/work/:slug" element={<CaseStudy />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </main>
+      <Footer />
+    </MotionConfig>
   )
 }

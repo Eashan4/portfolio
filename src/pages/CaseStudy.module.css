@@ -1,0 +1,130 @@
+.wrap {
+  width: min(100% - calc(var(--gutter) * 2), var(--content-max));
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0 var(--section-pad);
+}
+
+.back {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.back:hover {
+  color: var(--signal);
+}
+
+.header {
+  margin-top: 2rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2rem;
+}
+.category {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.title {
+  margin: 0.8rem 0 1.2rem;
+  font-size: var(--step-3);
+}
+.short {
+  font-size: var(--step-1);
+  color: var(--muted);
+  max-width: 60ch;
+}
+.headMeta {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: center;
+}
+.metaBits {
+  display: flex;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.links {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.part {
+  padding: clamp(2.2rem, 5vw, 3.4rem) 0;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  gap: 1.2rem 2.5rem;
+}
+.partLabel {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.partBody p {
+  max-width: 64ch;
+  color: var(--muted);
+  font-size: var(--step-0);
+}
+.partBody p + p {
+  margin-top: 1rem;
+}
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.list li {
+  padding: 0.8rem 0 0.8rem 1.6rem;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  color: var(--muted);
+  max-width: 64ch;
+}
+.list li:first-child {
+  border-top: 1px solid var(--line);
+}
+.list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--signal);
+}
+
+.nextRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 2rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.nextRow a:hover {
+  color: var(--signal);
+}
+.nextRow span {
+  display: block;
+  color: var(--muted-2);
+  margin-bottom: 0.3rem;
+}
+
+@media (max-width: 720px) {
+  .part {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}

@@ -6,26 +6,29 @@ const BREAKPOINTS = [
   { name: 'desktop', width: 1440, height: 900 },
 ]
 
+const PATHS = ['/', '/work/smarthealth-ai']
+
 /**
- * Captures a screenshot of each page at each breakpoint into
- * `test-results/screenshots/` and asserts the layout never overflows
- * horizontally (a common responsive-layout regression).
+ * Screenshots each path at each breakpoint into test-results/screenshots/ and
+ * asserts the layout never overflows horizontally.
  */
 for (const bp of BREAKPOINTS) {
-  for (const path of ['/', '/work', '/about']) {
-    test(`${path} has no horizontal overflow at ${bp.name}`, async ({ page }) => {
+  for (const path of PATHS) {
+    test(`${path} has no horizontal overflow at ${bp.name}`, async ({
+      page,
+    }) => {
       await page.setViewportSize({ width: bp.width, height: bp.height })
       await page.goto(path)
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible()
 
       const overflow = await page.evaluate(
         () =>
-          document.documentElement.scrollWidth - document.documentElement.clientWidth,
+          document.documentElement.scrollWidth -
+          document.documentElement.clientWidth,
       )
       expect(overflow, 'horizontal overflow in px').toBeLessThanOrEqual(1)
 
-      const slug = path === '/' ? 'home' : path.replace(/\//g, '')
-      // Playwright creates parent dirs for screenshot paths automatically.
+      const slug = path === '/' ? 'home' : path.replace(/\//g, '-')
       await page.screenshot({
         path: `test-results/screenshots/${slug}-${bp.name}.png`,
         fullPage: true,

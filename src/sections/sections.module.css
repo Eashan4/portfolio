@@ -1,0 +1,664 @@
+/* ============================ HERO (CH.01) ============================ */
+.hero {
+  position: relative;
+  padding: clamp(3.5rem, 8vw, 6rem) 0 var(--section-pad);
+}
+.heroInner {
+  width: min(100% - calc(var(--gutter) * 2), var(--wide-max));
+  margin-inline: auto;
+}
+.heroHead {
+  max-width: 18ch;
+}
+.heroLine {
+  overflow: hidden;
+  display: block;
+}
+.heroLine > span {
+  display: block;
+}
+.heroTitle {
+  font-size: var(--step-4);
+  margin: 0.6rem 0 1.4rem;
+}
+.scope {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7ch;
+  font-family: var(--font-mono);
+  font-size: clamp(0.9rem, 0.7rem + 1vw, 1.15rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.scopeWord {
+  position: relative;
+  color: var(--signal);
+  border-bottom: 1px solid color-mix(in srgb, var(--signal) 40%, transparent);
+  padding-bottom: 0.1em;
+  min-width: 12ch;
+}
+.heroTagline {
+  margin-top: 1.6rem;
+  max-width: 54ch;
+  font-size: var(--step-1);
+  color: var(--muted);
+}
+.heroMap {
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+.heroMeta {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+/* ====================== WHAT I BUILD (CH.02) ======================= */
+.domainList {
+  border-top: 1px solid var(--line);
+}
+.domainRow {
+  border-bottom: 1px solid var(--line);
+}
+.domainButton {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1.4rem 0;
+  display: grid;
+  grid-template-columns: 4rem 1fr auto;
+  gap: 1.2rem;
+  align-items: baseline;
+  color: var(--fg);
+}
+.domainButton:hover .domainName {
+  color: var(--signal);
+}
+.domainIndex {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--muted-2);
+  letter-spacing: 0.1em;
+}
+.domainName {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  letter-spacing: -0.015em;
+  transition: color var(--dur) var(--ease);
+}
+.domainToggle {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--muted-2);
+}
+.domainPanel {
+  overflow: hidden;
+}
+.domainPanelInner {
+  padding: 0 0 1.8rem 5.2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 1.5rem 2.5rem;
+}
+.domainBlurb {
+  font-size: var(--step-0);
+}
+.miniHead {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin: 0 0 0.5rem;
+}
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 1.1rem;
+  padding: 0;
+  list-style: none;
+}
+.chipRow li {
+  font-size: 0.78rem;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 0.2rem 0.45rem;
+}
+.evidenceList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.evidenceList a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--fg);
+}
+.evidenceList a:hover {
+  color: var(--signal);
+}
+.evidenceList span {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  flex: none;
+}
+
+@media (max-width: 720px) {
+  .domainButton {
+    grid-template-columns: 2.4rem 1fr auto;
+    gap: 0.8rem;
+  }
+  .domainPanelInner {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+}
+
+/* ==================== TECHNOLOGY ECOSYSTEM (CH.03) ================= */
+.ecoLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: 2rem 3rem;
+  align-items: start;
+}
+.ecoGroup {
+  margin-bottom: 1.6rem;
+}
+.ecoGroupHead {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.7rem;
+}
+.techGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.techChip {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 0.32rem 0.55rem;
+  cursor: pointer;
+  transition:
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease),
+    opacity var(--dur) var(--ease);
+}
+.techChip:hover {
+  color: var(--fg);
+  border-color: var(--muted);
+}
+.techChip[data-state='active'] {
+  color: var(--signal);
+  border-color: color-mix(in srgb, var(--signal) 55%, transparent);
+  background: var(--signal-dim);
+}
+.techChip[data-state='dim'] {
+  opacity: 0.32;
+}
+.ecoPanel {
+  position: sticky;
+  top: 5rem;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--panel);
+  padding: 1.25rem 1.4rem;
+}
+.ecoPanelName {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  color: var(--fg);
+}
+.ecoPanelCat {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--trace);
+  margin-top: 0.2rem;
+}
+.ecoPanelPurpose {
+  margin-top: 0.8rem;
+  font-size: var(--step-0);
+}
+.ecoUsedIn {
+  margin-top: 1.1rem;
+}
+.ecoUsedIn a,
+.ecoUsedIn span.none {
+  display: block;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--fg);
+  font-size: 0.9rem;
+}
+.ecoUsedIn a:hover {
+  color: var(--signal);
+}
+
+@media (max-width: 860px) {
+  .ecoLayout {
+    grid-template-columns: 1fr;
+  }
+  .ecoPanel {
+    position: static;
+  }
+}
+
+/* ======================= FEATURED WORK (CH.04) =================== */
+.workRow {
+  display: block;
+  border-top: 1px solid var(--line);
+  padding: 1.7rem 0;
+  color: var(--fg);
+}
+.workRow:last-of-type {
+  border-bottom: 1px solid var(--line);
+}
+.workRowTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem 1.2rem;
+}
+.workIndex {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--muted-2);
+  letter-spacing: 0.1em;
+}
+.workTitle {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  letter-spacing: -0.015em;
+  transition: transform var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.workRow:hover .workTitle {
+  transform: translateX(8px);
+  color: var(--signal);
+}
+.workCategory {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.workDesc {
+  margin-top: 0.7rem;
+  max-width: 60ch;
+  color: var(--muted);
+}
+.workMeta {
+  margin-top: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.2rem;
+}
+.workViewLink {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.workRow:hover .workViewLink {
+  color: var(--signal);
+}
+
+.subsectionHead {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin: 3rem 0 0.5rem;
+}
+.archiveList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.archiveList a {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 0.35rem 0.6rem;
+}
+.archiveList a:hover {
+  color: var(--fg);
+  border-color: var(--muted);
+}
+
+/* ========================= RESEARCH (CH.05) ===================== */
+.pubCard {
+  border: 1px solid var(--line-strong);
+  border-left: 3px solid var(--signal);
+  border-radius: 2px;
+  background: var(--panel);
+  padding: clamp(1.4rem, 4vw, 2.4rem);
+}
+.pubKicker {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--signal);
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.pubTitle {
+  margin: 1.1rem 0 0;
+  font-size: var(--step-2);
+}
+.pubAuthor {
+  margin-top: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.pubSummary {
+  margin-top: 1.2rem;
+  font-size: var(--step-1);
+  color: var(--muted);
+  max-width: 60ch;
+}
+.pubNote {
+  margin-top: 0.9rem;
+  font-size: 0.82rem;
+  color: var(--muted-2);
+}
+.pubActions {
+  margin-top: 1.6rem;
+}
+.connections {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.connCol {
+  background: var(--ink);
+  padding: 1.1rem 1.2rem;
+}
+.connColHead {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin-bottom: 0.7rem;
+}
+.connCol ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.connCol li {
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+.connCol a:hover {
+  color: var(--signal);
+}
+
+/* ==================== CURRENTLY BUILDING (CH.06) ================ */
+.statusLine {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: var(--step-1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+.statusPulse {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--trace);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--trace) 70%, transparent);
+  animation: pulse 2.4s var(--ease) infinite;
+  flex: none;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--trace) 60%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+.focusList {
+  margin: 1.8rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.focusList li {
+  border-bottom: 1px solid var(--line);
+  padding: 1rem 0 1rem 2.5rem;
+  position: relative;
+  color: var(--muted);
+  font-size: var(--step-0);
+}
+.focusList li::before {
+  content: '+';
+  position: absolute;
+  left: 0;
+  color: var(--signal);
+  font-family: var(--font-mono);
+}
+.currentNote {
+  margin-top: 1.4rem;
+  font-size: 0.86rem;
+  color: var(--muted-2);
+}
+
+/* ========================= JOURNEY (CH.07) ===================== */
+.stage {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 1.5rem 2.5rem;
+  padding: 1.8rem 0;
+  border-top: 1px solid var(--line);
+}
+.stage:last-of-type {
+  border-bottom: 1px solid var(--line);
+}
+.stageLabel {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.stageLabel b {
+  display: block;
+  color: var(--fg);
+  font-weight: 500;
+}
+.stageLabel span {
+  color: var(--muted-2);
+}
+.stageHeadline {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+.stageDetail {
+  margin-top: 0.6rem;
+  max-width: 60ch;
+}
+.stageMarkers {
+  margin-top: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0;
+  list-style: none;
+}
+.stageMarkers li {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted-2);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 0.2rem 0.45rem;
+}
+.credGrid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 2rem;
+}
+.credCol h4 {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin: 0 0 0.8rem;
+}
+.credCol ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.credItem b {
+  display: block;
+  color: var(--fg);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+.credItem span {
+  font-size: 0.82rem;
+  color: var(--muted-2);
+}
+
+@media (max-width: 720px) {
+  .stage {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+}
+
+/* ========================= CONTACT (CH.08) ===================== */
+.contactGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  gap: 2rem 3rem;
+  align-items: start;
+}
+.contactBig {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  letter-spacing: -0.015em;
+  color: var(--fg);
+  max-width: 20ch;
+}
+.contactActions {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+.copyRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6ch;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  padding: 0.7rem 1.1rem;
+  cursor: pointer;
+}
+.copyRow:hover {
+  border-color: var(--signal);
+}
+.copyRow[data-copied='true'] {
+  color: var(--trace);
+  border-color: color-mix(in srgb, var(--trace) 50%, transparent);
+}
+.contactList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.contactList li {
+  border-bottom: 1px solid var(--line);
+}
+.contactList a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.contactList a:hover {
+  color: var(--signal);
+}
+.contactList span {
+  color: var(--muted-2);
+}
+
+@media (max-width: 760px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}

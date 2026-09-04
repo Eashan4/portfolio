@@ -1,0 +1,113 @@
+{
+  "generatedAt": "2026-08-27T14:56:40.894Z",
+  "user": "Eashan4",
+  "repos": [
+    {
+      "name": "smart-hospital-queue-system",
+      "description": "ESP8266-based edge-AI system that counts patients, verifies them by RFID, predicts waiting time on-device, and streams it live to a public web dashboard — with no backend server.",
+      "url": "https://github.com/Eashan4/smart-hospital-queue-system",
+      "language": "C++",
+      "stars": 0,
+      "topics": [],
+      "pushedAt": "2026-08-21T09:06:23Z"
+    },
+    {
+      "name": "smarthealth-ai",
+      "description": "Deep learning-based wearable healthcare monitoring: activity, fall, tremor, and vital sign detection (ESP32 + MPU6050 + MAX30102 + 1D CNN/LSTM)",
+      "url": "https://github.com/Eashan4/smarthealth-ai",
+      "language": "Python",
+      "stars": 0,
+      "topics": [
+        "deep-learning",
+        "esp32",
+        "fall-detection",
+        "flask",
+        "healthcare",
+        "iot",
+        "machine-learning",
+        "pytorch",
+        "wearable"
+      ],
+      "pushedAt": "2026-08-21T08:16:42Z"
+    },
+    {
+      "name": "nova",
+      "description": "NOVA — a premium consumer-electronics e-commerce storefront (audio, wearables, power, smart home) built with Next.js 15, React 19 & Tailwind CSS v4.",
+      "url": "https://github.com/Eashan4/nova",
+      "language": "TypeScript",
+      "stars": 0,
+      "topics": [
+        "ecommerce",
+        "framer-motion",
+        "nextjs",
+        "react",
+        "tailwindcss",
+        "typescript"
+      ],
+      "pushedAt": "2026-08-20T08:42:17Z"
+    },
+    {
+      "name": "antigravity-tracker",
+      "description": "QuotaVerse — AI Account Command Center. Monitor quotas, route prompts, and manage all AI accounts in real time.",
+      "url": "https://github.com/Eashan4/antigravity-tracker",
+      "language": "TypeScript",
+      "stars": 0,
+      "topics": [],
+      "pushedAt": "2026-05-11T09:23:05Z"
+    },
+    {
+      "name": "Real-Time-Facial-Recognition-System-with-Assistant",
+      "description": "Connect all CCTV cameras to this system to track someone's live location in a premise using facial recognition. It can be also used to maintain records of people entering a premise using their face instead of bio-metrics/cards/manual Entry ",
+      "url": "https://github.com/Eashan4/Real-Time-Facial-Recognition-System-with-Assistant",
+      "language": "Python",
+      "stars": 2,
+      "topics": [],
+      "pushedAt": "2025-05-09T05:35:50Z"
+    },
+    {
+      "name": "Laboratory_managment-system-DBMS-",
+      "description": "The Laboratory Management System is a web-based application designed to manage various aspects of a medical laboratory including patient records, doctor information, appointments, tests, lab results, billing, inventory, and pitfalls tracking. The system provides a RESTful API backend with authentication and a static frontend interface.",
+      "url": "https://github.com/Eashan4/Laboratory_managment-system-DBMS-",
+      "language": "HTML",
+      "stars": 0,
+      "topics": [],
+      "pushedAt": "2025-05-08T00:43:07Z"
+    },
+    {
+      "name": "bed-occupancy-management",
+      "description": null,
+      "url": "https://github.com/Eashan4/bed-occupancy-management",
+      "language": "JavaScript",
+      "stars": 1,
+      "topics": [],
+      "pushedAt": "2026-03-31T23:58:02Z"
+    },
+    {
+      "name": "Smart-Energy-Meter",
+      "description": "A connected energy monitoring device that measures real-time power consumption and transmits data to a web or mobile interface. It helps detect abnormal usage, calculate cost, and promote efficient energy management.",
+      "url": "https://github.com/Eashan4/Smart-Energy-Meter",
+      "language": "C++",
+      "stars": 1,
+      "topics": [],
+      "pushedAt": "2026-01-29T17:59:40Z"
+    },
+    {
+      "name": "Fingerprint-Door-Lock-System",
+      "description": "A biometric door access system that unlocks only when an authorized fingerprint is scanned. It enhances security by eliminating traditional keys and can log access data using IoT integration.",
+      "url": "https://github.com/Eashan4/Fingerprint-Door-Lock-System",
+      "language": "C++",
+      "stars": 1,
+      "topics": [],
+      "pushedAt": "2026-01-29T17:30:47Z"
+    },
+    {
+      "name": "Heart-Rate-Monitoring-System",
+      "description": "A health monitoring device that uses a pulse or MAX30102 sensor to measure heart rate and SpO₂ levels. The readings are transmitted to an IoT platform for remote health tracking and early detection of abnormalities.",
+      "url": "https://github.com/Eashan4/Heart-Rate-Monitoring-System",
+      "language": "HTML",
+      "stars": 1,
+      "topics": [],
+      "pushedAt": "2026-01-29T17:27:42Z"
+    }
+  ]
+}

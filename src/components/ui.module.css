@@ -1,0 +1,88 @@
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6ch;
+}
+.eyebrow::before {
+  content: '';
+  width: 1.6rem;
+  height: 1px;
+  background: var(--signal);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.pill {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 0.28rem 0.5rem;
+  white-space: nowrap;
+}
+.pill[data-active='true'] {
+  color: var(--signal);
+  border-color: color-mix(in srgb, var(--signal) 45%, transparent);
+  background: var(--signal-dim);
+}
+
+.btn {
+  --btn-fg: var(--fg);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6ch;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--btn-fg);
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  padding: 0.7rem 1.1rem;
+  cursor: pointer;
+  transition:
+    border-color var(--dur) var(--ease),
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+.btn:hover {
+  border-color: var(--signal);
+  background: var(--signal-dim);
+}
+.btn svg {
+  width: 0.85em;
+  height: 0.85em;
+}
+.btnPrimary {
+  color: var(--ink);
+  background: var(--signal);
+  border-color: var(--signal);
+}
+.btnPrimary:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--signal) 82%, #fff);
+  border-color: color-mix(in srgb, var(--signal) 82%, #fff);
+}
+
+.arrow {
+  transition: transform var(--dur) var(--ease);
+}
+.btn:hover .arrow {
+  transform: translateX(3px);
+}

@@ -13,7 +13,13 @@ export default defineConfig({
   // hitting a cold dev server in parallel can race a dep re-optimization and
   // see dropped connections — which is exactly what the E2E suite does.
   optimizeDeps: {
-    include: ['three', '@react-three/fiber', '@react-three/drei'],
+    include: [
+      'three',
+      '@react-three/fiber',
+      '@react-three/drei',
+      'framer-motion',
+      'react-router-dom',
+    ],
   },
   preview: {
     port: 4173,
