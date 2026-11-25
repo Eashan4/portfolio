@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { MotionConfig } from 'framer-motion'
+import { Analytics } from '@vercel/analytics/react'
 import {
   ChannelRail,
   Footer,
@@ -71,6 +72,7 @@ export default function App() {
         </Suspense>
       </main>
       <Footer />
+      <Analytics />
     </MotionConfig>
   )
 }
